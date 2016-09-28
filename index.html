@@ -20,19 +20,7 @@
 				}
 			}
 		};
-		var boundary = '--' + Math.floor(Math.random()*32768) + Math.floor(Math.random()*32768) + Math.floor(Math.random()*32768);
-		var body = '';
-		body += '--' + boundary + '\r\n' + 'Content-Disposition: form-data;name="file"';
-		body += '\r\n\r\n';
-		body += 'filename="';
-		body += x.name;
-		body += '"\r\n';
-        body += 'Content-Type: text/javascript';
-		body += '\r\n';
-		body += '--' + boundary + '--';
-		xhttp.open("POST", "http://10.0.100.21:8085/fileupload/upload", true);
-		//xhttp.setRequestHeader("Content-type", 'multipart/form-data; boundary=' + boundary);
-		//xhttp.setRequestHeader("Content-type", "multipart/form-data");
+
 		xhttp.send(new FormData (form));
 		//xhttp.send(body);
 		return false;

@@ -7,9 +7,11 @@ var sum = 0;
 //})
 //console.log(sum);
 
-//Another implementation for the same can be as follows
+//Another optimized and simple implementation for the same can be as follows
 
 for(i=2; i< process.argv.length; i++){
 sum = sum + Number(process.argv[i]);
 }
 console.log(sum);
+//Always try to seek out the simplest solution for your problem, 
+//Life is as complicated as we make it.

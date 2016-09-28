@@ -1,0 +1,66 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script type="text/javascript">
+	function getEmp(form) {
+
+		 var x = document.getElementById("myFile").files[0];
+		var xhttp = new XMLHttpRequest();
+		alert("oka");
+
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == XMLHttpRequest.DONE) {
+				if (xhttp.status == 200) {
+
+				} else if (xhttp.status == 400) {
+					alert('There was an error 400');
+				} else {
+
+					alert('something else other than 200 was returned');
+				}
+			}
+		};
+		var boundary = '--' + Math.floor(Math.random()*32768) + Math.floor(Math.random()*32768) + Math.floor(Math.random()*32768);
+		var body = '';
+		body += '--' + boundary + '\r\n' + 'Content-Disposition: form-data;name="file"';
+		body += '\r\n\r\n';
+		body += 'filename="';
+		body += x.name;
+		body += '"\r\n';
+        body += 'Content-Type: text/javascript';
+		body += '\r\n';
+		body += '--' + boundary + '--';
+		xhttp.open("POST", "http://10.0.100.21:8085/fileupload/upload", true);
+		//xhttp.setRequestHeader("Content-type", 'multipart/form-data; boundary=' + boundary);
+		//xhttp.setRequestHeader("Content-type", "multipart/form-data");
+		xhttp.send(new FormData (form));
+		//xhttp.send(body);
+		return false;
+
+	}
+</script>
+</head>
+<body>
+
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="./upload"
+			onsubmit="return getEmp(this)">
+			<table>
+				<tr>
+					<td>File to upload:</td>
+					<td><input type="file" name="file" id="myFile" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Upload" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+
+
+</body>
+</html>
+>

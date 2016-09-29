@@ -7,3 +7,5 @@ console.log(result);
 
 But incase of when we use callbacks the story is little different.
 The main aim for the introduction of callbacks was to avoid code blocks.
+
+# It is but obvious, but please note that just because we execute file with the command 'node example.js' does not imply that its a server side getting up and running.

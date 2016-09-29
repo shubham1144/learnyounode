@@ -1,0 +1,9 @@
+#Whenever we call a normal function, we can use its return value as follows,
+
+```
+var result = multiply(a, b);
+console.log(result);
+```
+
+But incase of when we use callbacks the story is little different.
+The main aim for the introduction of callbacks was to avoid code blocks.
